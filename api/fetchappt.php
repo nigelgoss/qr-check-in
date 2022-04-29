@@ -1,15 +1,15 @@
 <?php
 
-include("connect.php");
+require_once('connect.php');
 
 $input = json_decode(file_get_contents('php://input'), true);
 
-if($input === null){
+if ($input === null){
 	http_response_code(400);
 	die();
 }
 
-$query_appt = <<<BLOCK
+$query = <<<BLOCK
 
 SELECT	DISTINCT
 		A.[UNID],
@@ -19,6 +19,7 @@ SELECT	DISTINCT
 		'a@b.com' [Email]
 
 from TBL_OP_APPOINTMENTS A
+
 INNER JOIN VW_PATIENT_DEMO P
 on A.PATIENT_ID = P.PATIENT_ID
 
@@ -31,13 +32,9 @@ and LEFT(DATENAME (MM, DATE_OF_BIRTH), 3) = :Month
 
 BLOCK;
 
-$db = $conn->prepare($query_appt);
+$db = $conn->prepare($query);
 $db->execute($input);
-$res = $db->fetch(PDO::FETCH_ASSOC);
-
-if ($res === FALSE) {
-	$res = [];
-}
+$res = $db->fetchAll(PDO::FETCH_ASSOC);
 
 echo json_encode($res);
 
