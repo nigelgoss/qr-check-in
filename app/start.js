@@ -7,7 +7,7 @@ $.pages["Start"] = (() => {
 	const locations = {
 		"RONE": "Reception One",
 		"RTWO": "Reception Two",
-		"CX-MAIN-OPD": "CX MAIN OPD",
+		"CX MAIN OPD": "CX MAIN OPD",
 	};
 	
 	const main = document.createElement("main");
