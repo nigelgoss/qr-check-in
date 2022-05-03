@@ -8,7 +8,7 @@ $.pages["Search Results"] = (($input) => {
 	let response;
 
 	const main = document.createElement("main");
-	main.style = "display:flex; flex-direction:column; justify-content:space-around; height:100%;";
+	main.style = "display:grid; grid-template-rows:auto 1fr auto; grid-gap:1.5rem; overflow:hidden;";
 	
 	const lblSearch = document.createElement("h1");
 	main.appendChild(lblSearch);
@@ -50,14 +50,6 @@ $.pages["Search Results"] = (($input) => {
 		buttonNo.className = "red";
 		buttonNo.onpointerdown = () => {
 			$.nav.goTo("Unable To Process");
-		};
-		
-		const buttonUpdate = document.createElement("button");
-		divOptions.appendChild(buttonUpdate);
-		buttonUpdate.id = "lang-SearchResults-ButtonUpdate";
-		buttonUpdate.className = "amber";
-		buttonUpdate.onpointerdown = () => {
-			//$.nav.goTo("Check In", response);
 		};
 
 		const buttonYes = document.createElement("button");
