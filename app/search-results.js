@@ -47,7 +47,6 @@ $.pages["Search Results"] = (($input) => {
 		const buttonNo = document.createElement("button");
 		divOptions.appendChild(buttonNo);
 		buttonNo.id = "lang-SearchResults-ButtonNo";
-		buttonNo.className = "red";
 		buttonNo.onpointerdown = () => {
 			$.nav.goTo("Unable To Process");
 		};
@@ -55,7 +54,7 @@ $.pages["Search Results"] = (($input) => {
 		const buttonYes = document.createElement("button");
 		divOptions.appendChild(buttonYes);
 		buttonYes.id = "lang-SearchResults-ButtonYes";
-		buttonYes.className = "green";
+		buttonYes.className = "primary";
 		buttonYes.onpointerdown = () => {
 			$.nav.goTo("Check In", {"UNID":response[0].UNID});
 		};
