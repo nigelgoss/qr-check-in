@@ -16,7 +16,7 @@ $.pages["Start"] = (() => {
 	const logo = document.createElement("img");
 	main.appendChild(logo);
 	logo.src = "app/resources/imperial.png";
-	logo.style = "width:200px; place-self:end;";
+	logo.style = "width:200px; height:42px; place-self:end;";
 	
 	const language = document.createElement("div");
 	main.appendChild(language);
